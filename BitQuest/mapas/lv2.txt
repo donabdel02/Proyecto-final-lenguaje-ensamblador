@@ -1,0 +1,2 @@
+//Mapa nivel 2.
+//60x60 como todos 
