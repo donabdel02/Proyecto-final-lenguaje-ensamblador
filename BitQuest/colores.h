@@ -1,4 +1,4 @@
-//los colorcitos para el punto extra 
+// los colorcitos para el punto extra 
 
 #ifndef COLORES_H
 #define COLORES_H
@@ -14,7 +14,7 @@ llaves - verde esperanza
 puertas - morado misterio
 salida - cyan libertad 
 titulo - blanco puro
- */
+*/
 
 #define COLOR_PARED "\033[31m"
 #define COLOR_CAMINO "\033[30m"
