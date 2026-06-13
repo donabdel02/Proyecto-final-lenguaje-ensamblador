@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include "../include/mapas.h"
-#include "../include/juego.h"
+#include "../include/jugador.h"
 
 int cargar_mapa(const char *ruta, char mapa[][COLS]) {
     FILE *f = fopen(ruta, "r");

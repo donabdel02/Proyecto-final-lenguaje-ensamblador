@@ -2,7 +2,7 @@
 
 #include "colores.h"
 #include "assets.h"
-#include "juego.h"  
+#include "jugador.h"
 #include "mapas.h"
 
 void pantalla_inicio();    // punto extra: pantalla de inicio

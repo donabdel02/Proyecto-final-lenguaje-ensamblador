@@ -21,9 +21,6 @@ Videojuego de consola en C y NASM de 64 bits.
 
 ## Funciones en NASM
 
-- `reproducirSonidoMoneda()` — beep al recoger moneda
-- `reproducirSonidoPuerta()` — sonido al abrir puerta
-- `reproducirSonidoVictoria()` — melodia al completar nivel
 
 ## Extras
 
