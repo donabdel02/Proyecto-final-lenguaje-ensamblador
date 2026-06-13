@@ -1,6 +1,11 @@
 AQUI ESCRIBAN QUE HICIERON, COMO LO HICIERON Y PARA QUE, PARA INCLUIRLO EN EL REPORTE 
 
 Abdel 
+    para el comienzo usamos una estructura basica de extenciones como mapas.h, assets.h, colores.h y juego.h ademas de el main.c,
+    configurando solamente las bases en cada uno de estos archivos. despues cambiamos a una estructura bastante mas modular con 
+    carpetas donde van las distintas extenciones, mapas y objetos, añadimos archivos nuevos como jugador en ves de juego en el 
+    cual estara el estado del jugador, con esta nueva configuracion llamaremos todo desde el main aplicando esta mayor modularidad 
+    que ya se menciono,  
 
 Andres
 

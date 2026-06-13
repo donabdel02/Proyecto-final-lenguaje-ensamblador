@@ -1,7 +1,7 @@
 // para definir matrices, structs y funciones del juego 
 
-#ifndef JUEGO_H
-#define JUEGO_H
+#ifndef JUGADOR_H
+#define JUGADOR_H
 
 #define filas 60
 #define cols 60
