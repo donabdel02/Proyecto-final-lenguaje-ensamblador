@@ -47,27 +47,27 @@ void MostrarHUD(Jugador* j, int nivel) {
 
 void mostrarPantallaInicio() {
     system("cls");
-    printf(COLOR_SALIDA "\n");
+    printf(COLOR_TITULO "\n");
     printf("BITQUEST\n");
     printf("Explorador de Matrices\n");
     printf(COLOR_RESET "\n\n");
     printf("Controles:\n");
-    printf("  W - Arriba\n");
-    printf("  S - Abajo\n");
-    printf("  A - Izquierda\n");
-    printf("  D - Derecha\n");
-    printf("  Q - Salir\n\n");
-    printf("Presione ENTER para comenzar...\n");
+    printf(" W - Arriba\n");
+    printf(" S - Abajo\n");
+    printf(" A - Izquierda\n");
+    printf(" D - Derecha\n");
+    printf(" Q - Salir\n\n");
+    printf("Presione ENTER para comenzar\n");
     getchar();
 }
 
 void mostrarPantallaVictoria(int monedas, int pasos) {
     system("cls");
-    printf(COLOR_SALIDA "\n");
+    printf(COLOR_TITULO "\n");
     printf("Grande vro pudiste salir del laberinto\n");
     printf(COLOR_RESET "\n");
     printf("Monedas recogidas: %d\n", monedas);
     printf("Pasos dados: %d\n", pasos);
-    printf("Presione ENTER para salir...\n");
+    printf("\nPresione ENTER para salir\n");
     getchar();
 }
