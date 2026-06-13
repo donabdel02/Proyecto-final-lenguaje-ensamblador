@@ -4,7 +4,7 @@
 #define COLORES_H
 
 #define COLOR_RESET "\033[0m"
-#define 
+#define COLOR_BOLD "\033[1m"
 /* 
 paredes - rojo sangre
 camino libre - negro
