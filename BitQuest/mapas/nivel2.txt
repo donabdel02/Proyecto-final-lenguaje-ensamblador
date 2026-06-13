@@ -1,2 +1,0 @@
-# Mapa nivel 2 - BitQuest
-# 60x60 - completar en siguiente iteracion

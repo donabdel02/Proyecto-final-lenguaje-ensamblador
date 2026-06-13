@@ -3,7 +3,7 @@
 #ifndef MAPAS_H
 #define MAPAS_H
 
-#include "juego.h"
+#include "jugador.h"
 
 int cargar_mapa(const char* ruta, char mapa[][COLS]);
 
