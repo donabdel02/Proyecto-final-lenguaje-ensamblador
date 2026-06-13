@@ -1,33 +1,22 @@
-// para definir matrices, structs y funciones del juego 
-
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
-#define filas 60
-#define cols 60
-#define vis 20
-#define num_niveles 4
+#define FILAS 60
+#define COLUMNAS 60
+#define MARCO 20
 
 typedef struct {
     int fila;
-    int col;
+    int columna;
     int monedas;
-    int tiene_llave;
+    int Llave;
     int pasos;
 } Jugador;
 
-typedef struct {
-    char mapa[filas][cols];
-    int total_monedas;
-    int total_libres;
-    int nivel_num;
-} Nivel;
-
-// prototipos (implementar en juego.c)
-void imprimir_ventana(Nivel* n, Jugador* j);
-void mover_jugador(Nivel* n, Jugador* j, char tecla);
-void mostrar_hud(Jugador* j, int nivel_num);
-void mostrar_resumen_nivel(Jugador* j, Nivel* n);
-void mostrar_resumen_final(int monedas_total, int monedas_max, int pasos, long puntaje);
+void CrearJugador(Jugador* j, int fila, int col);
+void MoverJugador(Jugador* j, char direccion, char** mapa); //asi apunta a filas y columnas sin la necesidad de [60][60]
+void RecogerObjeto(Jugador* j, char objeto);
+int get_Fila(Jugador* j);
+int get_Columnas(Jugador* j);
 
 #endif
