@@ -7,19 +7,10 @@ if errorlevel 1 ( echo ERROR en rutinas.nasm & pause & exit /b 1 )
 
 REM Compilar archivos C
 gcc -c src/jugador.c  -o src/jugador.obj  -I include
-if errorlevel 1 ( echo ERROR en jugador.c & pause & exit /b 1 )
-
 gcc -c src/mapas.c  -o src/mapas.obj  -I include
-if errorlevel 1 ( echo ERROR en mapas.c & pause & exit /b 1 )
-
 gcc -c src/renderizado.c  -o src/renderizado.obj  -I include
-if errorlevel 1 ( echo ERROR en renderizado.c & pause & exit /b 1 )
-
 gcc -c src/objetos.c  -o src/objetos.obj  -I include
-if errorlevel 1 ( echo ERROR en objetos.c & pause & exit /b 1 )
-
 gcc -c src/main.c   -o src/main.obj   -I include
-if errorlevel 1 ( echo ERROR en main.c & pause & exit /b 1 )
 
 REM Enlazar todo
 gcc src/main.obj src/jugador.obj src/mapas.obj src/renderizado.obj src/objetos.obj src/rutinas.obj ^
