@@ -5,7 +5,8 @@ Abdel
     configurando solamente las bases en cada uno de estos archivos. despues cambiamos a una estructura bastante mas modular con 
     carpetas donde van las distintas extenciones, mapas y objetos, añadimos archivos nuevos como jugador en ves de juego en el 
     cual estara el estado del jugador, con esta nueva configuracion llamaremos todo desde el main aplicando esta mayor modularidad 
-    que ya se menciono,  
+    que ya se menciono, primero definimos colores que usaremos, caracteres ascii, tamanio del mapa, structs del jugador y varias 
+    funciones basicas que usaremos, 
 
 Andres
 
