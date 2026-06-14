@@ -35,21 +35,29 @@ contarCaracterMapa:
 .fin:
     ret
 
-; validarMovimiento
-; rcx= mapa
+; int validarMovimiento(char *mapa, int columnas, int fila, int columna)
+; rcx = mapa
 ; rdx = columnas
 ; r8 = fila
 ; r9 = columna
 ; rax = 1 valido, 0 bloqueado
 validarMovimiento:
+    ; Calcula la posicion lineal dentro del mapa.
+    ; Formula usada:
+    ; indice = fila * columnas + columna
     mov  rax, r8
-    imul rax, rdx
-    add  rax, r9
-    cmp  byte [rcx + rax], '#'
-    je   .bloqueado
-    mov  rax, 1
+
+    imul rax, rdx ; multiplica la fila por el numero de columnas 
+
+    add  rax, r9 ;suma la columna y asi esta en la celda correcta 
+
+    cmp  byte [rcx + rax], '#' ;compara con una pared
+
+    je   .bloqueado ; si es pared pues ya se va
+
+    mov  rax, 1 ; y si no era pared si es valido 
     ret
 
 .bloqueado:
-    xor  rax, rax
+    xor  rax, rax ; regresa un 0 porque esta bloqueado 
     ret
