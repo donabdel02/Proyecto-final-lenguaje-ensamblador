@@ -4,6 +4,10 @@ bits 64
 default rel
 
 global contarCaracterMapa
+global validarMovimiento
+global calcularPuntaje
+global detectarObjeto
+global contarCeldasLibres
 
 section .text
 
@@ -29,4 +33,23 @@ contarCaracterMapa:
     jnz  .recorrer ; repite hasta revisar todas las celdas
 
 .fin:
+    ret
+
+; validarMovimiento
+; rcx= mapa
+; rdx = columnas
+; r8 = fila
+; r9 = columna
+; rax = 1 valido, 0 bloqueado
+validarMovimiento:
+    mov  rax, r8
+    imul rax, rdx
+    add  rax, r9
+    cmp  byte [rcx + rax], '#'
+    je   .bloqueado
+    mov  rax, 1
+    ret
+
+.bloqueado:
+    xor  rax, rax
     ret

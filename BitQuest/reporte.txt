@@ -6,7 +6,10 @@ Abdel
     carpetas donde van las distintas extenciones, mapas y objetos, añadimos archivos nuevos como jugador en ves de juego en el 
     cual estara el estado del jugador, con esta nueva configuracion llamaremos todo desde el main aplicando esta mayor modularidad 
     que ya se menciono, primero definimos colores que usaremos, caracteres ascii, tamanio del mapa, structs del jugador y varias 
-    funciones basicas que usaremos, 
+    funciones basicas que usaremos.
+    Hicimos la primera rutina en rutinas.nasm la cual cuenta caracteres en el mapa, que principalmente se va a usar para contar 
+    las monedas en el mapa. Despues la implementamos en rutinas.h para poder llamara despues. 
+    Definimos las funciones de rutinas.h que se ejecutan como desde rutinas.nasm para posteriormete programarlas en ensamblador. 
 
 Andres
 
