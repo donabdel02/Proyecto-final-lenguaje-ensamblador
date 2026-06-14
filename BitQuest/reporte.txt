@@ -31,6 +31,9 @@ Abdel
 
     cambio en los paranetros que recibe ImpresionMpara, ahora si recibe el mapa como una matriz de 60x60.
 
+    tambien se modifico build.bat para que compile objetos.c y lo agregue al enlazado como objetos.obj, ya que main.c usa
+    la funcion procesarObjeto para recoger monedas y llaves. ademas se agrego -lwinmm para que PlaySound pueda enlazarse correctamente.
+
 Andres
 
 Ninfa

@@ -1,7 +1,7 @@
 // objetos.h
 // Declara las funciones que manejan todo lo que le puede pasar al jugador
 // cuando pisa una celda que no esta vacia: recoger monedas, agarrar la llave,
-// y el movimiento del enemigo por el mapa.
+// y limpiar el objeto del mapa.
 // Este archivo fue creado desde cero porque el original estaba vacio.
 
 #ifndef OBJETOS_H
@@ -15,15 +15,5 @@
 //   - Si es 'K' (llave):  le da la llave al jugador y la borra del mapa
 // Se llama justo antes de mover al jugador a la nueva celda.
 void procesarObjeto(Jugador* j, char mapa[][60], int fila, int columna);
-
-// moverEnemigo: mueve al enemigo un paso hacia donde esta el jugador.
-// El enemigo siempre intenta acercarse, primero en filas y luego en columnas.
-// Solo se mueve si la celda destino esta libre ('.').
-// Si el enemigo llega a la misma celda que el jugador, el nivel termina.
-// Parametros:
-//   mapa          -> la matriz del nivel actual
-//   filaE, colE   -> posicion actual del enemigo (se actualiza dentro de la funcion)
-//   filaJ, colJ   -> posicion actual del jugador (solo lectura)
-void moverEnemigo(char mapa[][60], int* filaE, int* colE, int filaJ, int colJ);
 
 #endif // OBJETOS_H
