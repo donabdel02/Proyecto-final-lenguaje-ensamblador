@@ -27,7 +27,9 @@ Abdel
     para despues compararlo con el objeto desdeado, si este es igual pues excelente y retorna un 1 y si no es igual retorna un 0. 
 
     para contar las celdas libres primero se inicializa el contador de celdas libres en cero, se verifica el tamaño del mapa, y 
-    comienza a comparar las celdas del mapa con el . que simboliza un espacio vacio. al finaliar retorna la cantidad total de celdas libres.    
+    comienza a comparar las celdas del mapa con el . que simboliza un espacio vacio. al finaliar retorna la cantidad total de celdas libres.
+
+    cambio en los paranetros que recibe ImpresionMpara, ahora si recibe el mapa como una matriz de 60x60.
 
 Andres
 

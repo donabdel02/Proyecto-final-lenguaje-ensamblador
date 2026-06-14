@@ -5,7 +5,7 @@
 #include "assets.h"
 #include "jugador.h"
 
-void ImpresionMapa(char** mapa, Jugador* j) {
+void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene los parametros correctos para el para de 60x60 
     int VistaFila = j->fila - MARCO/2;
     int VistaColumna = j->columna - MARCO/2;
     
@@ -42,7 +42,7 @@ void ImpresionMapa(char** mapa, Jugador* j) {
 
 void MostrarHUD(Jugador* j, int nivel) {
     printf(COLOR_JUGADOR "Nivel: %d | Monedas: %d | Pasos: %d | Llave: %s" COLOR_RESET "\n", // esta funcion muestra el HUD con la informacion del jugador, como el nivel actual, las monedas recogidas, los pasos dados y si tiene la llave o no
-           nivel, j->monedas, j->pasos, j->Llave ? "SI" : "NO"); 
+        nivel, j->monedas, j->pasos, j->Llave ? "SI" : "NO"); 
 }
 
 void mostrarPantallaInicio() {
