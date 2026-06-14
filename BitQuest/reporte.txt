@@ -9,7 +9,17 @@ Abdel
     funciones basicas que usaremos.
     Hicimos la primera rutina en rutinas.nasm la cual cuenta caracteres en el mapa, que principalmente se va a usar para contar 
     las monedas en el mapa. Despues la implementamos en rutinas.h para poder llamara despues. 
-    Definimos las funciones de rutinas.h que se ejecutan como desde rutinas.nasm para posteriormete programarlas en ensamblador. 
+    Definimos las funciones de rutinas.h que se ejecutan como desde rutinas.nasm para posteriormete programarlas en ensamblador.
+
+    Para calcular puntaje usamos la siguente forma. cada moneda te da 250 puntitos, cada nivel completado te da 1000 puntitos y cada
+    paso que des te resta 5 puntitos. entonces se suman los punto de las monedas obtenidas y de los niveles completados y a este
+    se le restan los pasos que diste.
+
+    para comparar el objeto primero se obtiene la ubicacion dentro del mapa con una operacion de fila * num de columnas + la columna 
+    para despues compararlo con el objeto desdeado, si este es igual pues excelente y retorna un 1 y si no es igual retorna un 0. 
+
+    para verificar las celdas libres primero se inicializa el contador de celdas libres en cero, se verifica el tamaño del mapa, y 
+    comienza a comparar las celdas del mapa con el . que simboliza un espacio vacio. al finaliar retorna la cantidad total de celdas libres.    
 
 Andres
 
