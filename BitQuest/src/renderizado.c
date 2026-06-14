@@ -21,19 +21,21 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
             char celda = mapa[i][j]; // agarra el caracter de la celda actual para decidir como imprimirlo
             
             if (celda == CHAR_PARED) {
-                printf(COLOR_PARED "%c" COLOR_RESET, celda); // si es pared la imprime con el color de pared
+                printf(COLOR_PARED "%s" COLOR_RESET, VISUAL_PARED); // si es pared la imprime con el visual de pared
             } else if (celda == CHAR_JUGADOR) {
-                printf(COLOR_JUGADOR "%c" COLOR_RESET, celda); // si es jugador la imprime con el color de jugador
+                printf(COLOR_JUGADOR "%s" COLOR_RESET, VISUAL_JUGADOR); // si es jugador la imprime con el visual de jugador
             } else if (celda == CHAR_MONEDA) {
-                printf(COLOR_MONEDA "%c" COLOR_RESET, celda); // si es moneda la imprime con el color de moneda
+                printf(COLOR_MONEDA "%s" COLOR_RESET, VISUAL_MONEDA); // si es moneda la imprime con el visual de moneda
             } else if (celda == CHAR_LLAVE) {
-                printf(COLOR_LLAVE "%c" COLOR_RESET, celda); // si es llave la imprime con el color de llave
+                printf(COLOR_LLAVE "%s" COLOR_RESET, VISUAL_LLAVE); // si es llave la imprime con el visual de llave
             } else if (celda == CHAR_PUERTA) {
-                printf(COLOR_PUERTA "%c" COLOR_RESET, celda); // si es puerta la imprime con el color de puerta
+                printf(COLOR_PUERTA "%s" COLOR_RESET, VISUAL_PUERTA); // si es puerta la imprime con el visual de puerta
             } else if (celda == CHAR_SALIDA) {
-                printf(COLOR_SALIDA "%c" COLOR_RESET, celda); // si es salida la imprime con el color de salida
+                printf(COLOR_SALIDA "%s" COLOR_RESET, VISUAL_SALIDA); // si es salida la imprime con el visual de salida
+            } else if (celda == CHAR_LIBRE) {
+                printf(VISUAL_LIBRE); // camino libre, se imprime como espacio para que parezca pasillo
             } else {
-                printf("%c", celda); // si es cualquier otro caracter (como espacio) lo imprime normal sin color
+                printf("%c ", celda); // cualquier otro caracter conserva el ancho de dos columnas
             }
         }
         printf("\n");
