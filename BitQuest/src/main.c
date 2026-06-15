@@ -17,7 +17,7 @@
 #include <windows.h>    // PlaySound(): para reproducir musica WAV por nivel
 #include "colores.h"    // codigos ANSI para colores en consola
 #include "assets.h"     // caracteres del mapa: CHAR_PARED, CHAR_MONEDA, etc.
-#include "jugador.h"    // struct Jugador y funciones CrearJugador, MoverJugador
+#include "jugador.h"    // struct Jugador y funcion CrearJugador
 #include "mapas.h"      // cargar_mapa: lee el archivo .txt y llena la matriz
 #include "renderizado.h"// ImpresionMapa, MostrarHUD, pantallas de inicio y victoria
 #include "rutinas.h"    // prototipos de las 5 rutinas NASM obligatorias

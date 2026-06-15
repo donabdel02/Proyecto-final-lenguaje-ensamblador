@@ -13,7 +13,7 @@
 //   CHAR_LLAVE  ('K') -> activa la llave del jugador y limpia la celda
 // Limpiar la celda significa poner '.' para que el objeto no aparezca
 // dos veces en el mapa al volver a renderizar.
-void procesarObjeto(Jugador* j, char mapa[][60], int fila, int columna) {
+void procesarObjeto(Jugador* j, char mapa[][COLUMNAS], int fila, int columna) {
     char celda = mapa[fila][columna];
 
     if (celda == CHAR_MONEDA) {

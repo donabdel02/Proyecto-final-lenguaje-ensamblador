@@ -32,7 +32,7 @@ Abdel
     cambio en los paranetros que recibe ImpresionMpara, ahora si recibe el mapa como una matriz de 60x60.
 
     se cambio la forma en que se imprime el mapa para usar los caracteres visuales definidos en assets.h
-    Ahora las paredes se muestran como ##, el jugador como @, las monedas como o, la llave como !, la puerta como []
+    Ahora las paredes se muestran como bloques de fondo rojo, el jugador como /\, las monedas como o, la llave como !, la puerta como []
     y la salida como ><, en lugar de imprimir directamente los caracteres basicos de la matriz.
 
     tambien se modifico build.bat para que compile objetos.c y lo agregue al enlazado como objetos.obj, ya que main.c usa
@@ -61,9 +61,14 @@ Archivos.h
 en jugador.h y renderizado.h
 simplemente se llama a las funciones ya creadas para poder crear todo lo demás 
 
-tambien se corrigio el manejo de teclas para que solo WASD cuente como movimiento y las demas teclas no sumen pasos.
-La tecla Q ahora cierra el juego completo en vez de avanzar al siguiente nivel. Tambien se ajusto VISUAL_PARED para usarlo
-al imprimir las paredes con fondo rojo y se corrigio el HUD para que reinicie el color despues de mostrar la informacion.
+    tambien se corrigio el manejo de teclas para que solo WASD cuente como movimiento y las demas teclas no sumen pasos.
+    La tecla Q ahora cierra el juego completo en vez de avanzar al siguiente nivel. Tambien se ajusto VISUAL_PARED para usarlo
+    al imprimir las paredes con fondo rojo y se corrigio el HUD para que reinicie el color despues de mostrar la informacion.
+
+    Se actualizo README.md para explicar como compilar, ejecutar y que hace cada rutina de NASM. Tambien se limpio jugador.c y jugador.h,
+    dejando solo CrearJugador porque las funciones MoverJugador, RecogerObjeto, get_Fila y get_Columnas ya no se usaban. En objetos.c y
+    objetos.h se cambio el parametro del mapa a COLUMNAS para mantener la misma medida que usa el resto del proyecto. Por ultimo, en main.c
+    se corrigio el comentario de jugador.h para que solo mencione la funcion CrearJugador.
 
 
 
@@ -90,6 +95,6 @@ Ninfa
     abrir el archivo, leer cada línea y copiar carácter por carácter a la matriz. Si una línea termina antes de llegar a la columna 60 rellena el resto con . para que no queden caracteres 
     basura en memoria. Durante el desarrollo se detectó un error donde el código ignoraba todas las líneas que empezaban con #. Esto era un problema porque # es el carácter de pared del laberinto, 
     entonces todas las filas de paredes se saltaban y el mapa quedaba con huecos donde no debía haberlos. Se eliminó ese filtro para que el mapa cargue completo y correcto.
-    En objetos.h se declararon y en objetos.c se implementaron dos funciones. La primera es procesarObjeto, que recibe la posición a la que se va a mover el jugador, revisa qué carácter hay en esa 
+    En objetos.h se declaro y en objetos.c se implemento la funcion procesarObjeto, que recibe la posicion a la que se va a mover el jugador, revisa que caracter hay en esa 
     celda del mapa y aplica el efecto que corresponde: si es una moneda le suma uno al contador de monedas del jugador y reemplaza la celda con . para que no pueda recogerla dos veces, y si es una llave 
     activa la bandera de llave del jugador y también la borra del mapa. Se hace antes de mover al jugador para que el efecto ocurra en el momento exacto en que pisa la celda.
