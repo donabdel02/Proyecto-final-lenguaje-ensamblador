@@ -41,3 +41,28 @@ Abdel
 Andres
 
 Ninfa
+  Se crearon desde cero los archivos objetos.h y objetos.c para manejar lo que le pasa al jugador cuando pisa una celda con objeto. En objetos.h 
+    se declararon los prototipos de las funciones y en objetos.c se implementó procesarObjeto que revisa qué carácter hay en la celda a la que se
+    mueve el jugador: si es una moneda le suma uno al contador y la borra del mapa para que no se pueda recoger dos veces, y si es una llave activa
+    la bandera de llave del jugador y también la borra del mapa.
+    Se reescribió main.c para conectar todos los módulos del proyecto que antes existían pero no estaban unidos. Ahora carga el mapa desde
+    el archivo .txt del nivel, busca la posición inicial del jugador en el mapa, lee las teclas WASD para mover al jugador, 
+    llama a validarMovimiento de NASM para verificar que la celda no sea pared antes de moverse, llama a detectarObjeto de NASM
+    para saber si hay una moneda o llave en la celda destino, llama a procesarObjeto para aplicar el efecto correspondiente,
+    verifica si el jugador llegó a la salida, y al final llama a calcularPuntaje y contarCeldasLibres de NASM para el resumen.
+    También se conectaron las pantallas de inicio y victoria que ya existían en renderizado.c pero nunca se llamaban desde el flujo principal. De modo que se definieron 
+    los colores en colores.h usando códigos ANSI, que son secuencias de texto especiales que la consola de Windows interpreta como colores. Cada elemento del mapa tiene su 
+    
+    propio color: las paredes, las monedas, el jugador, la llave, la puerta y la salida. Esto se hizo para que el juego sea visualmente más claro y cubre el punto extra de 
+    colores en consola que vale 5 puntos.  
+    En assets.h se definieron todos los caracteres que representan los elementos del mapa, como CHAR_PARED para #, CHAR_MONEDA para M, CHAR_LLAVE para K, CHAR_PUERTA para D, 
+    CHAR_SALIDA para E y CHAR_JUGADOR para P.
+     Definirlos en un solo archivo sirve para que todos los módulos del proyecto usen exactamente los mismos nombres y si en algún momento
+    se quiere cambiar un carácter solo se modifica en un lugar y afecta a todo el proyecto automáticamente.
+    En mapas.h se declaró y en mapas.c se implementó la función cargar_mapa, que recibe la ruta del archivo .txt del nivel y la matriz de 60x60 donde va a guardar el mapa. Lo que hace es
+    abrir el archivo, leer cada línea y copiar carácter por carácter a la matriz. Si una línea termina antes de llegar a la columna 60 rellena el resto con . para que no queden caracteres 
+    basura en memoria. Durante el desarrollo se detectó un error donde el código ignoraba todas las líneas que empezaban con #. Esto era un problema porque # es el carácter de pared del laberinto, 
+    entonces todas las filas de paredes se saltaban y el mapa quedaba con huecos donde no debía haberlos. Se eliminó ese filtro para que el mapa cargue completo y correcto.
+    En objetos.h se declararon y en objetos.c se implementaron dos funciones. La primera es procesarObjeto, que recibe la posición a la que se va a mover el jugador, revisa qué carácter hay en esa 
+    celda del mapa y aplica el efecto que corresponde: si es una moneda le suma uno al contador de monedas del jugador y reemplaza la celda con . para que no pueda recogerla dos veces, y si es una llave 
+    activa la bandera de llave del jugador y también la borra del mapa. Se hace antes de mover al jugador para que el efecto ocurra en el momento exacto en que pisa la celda.
