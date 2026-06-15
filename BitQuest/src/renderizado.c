@@ -65,13 +65,16 @@ void mostrarPantallaInicio() {
     getchar();
 }
 
-void mostrarPantallaVictoria(int monedas, int pasos) {
+void mostrarPantallaVictoria(int monedas, int pasos, int puntaje) {
     system("cls");
     printf(COLOR_TITULO "\n");
     printf("Grande vro pudiste salir del laberinto\n");
     printf(COLOR_RESET "\n");
+    // Muestra todas las estadisticas finales antes de pausar
     printf("Monedas recogidas: %d\n", monedas);
     printf("Pasos dados: %d\n", pasos);
+    printf(COLOR_TITULO "Puntaje final: %d\n" COLOR_RESET, puntaje);
+    // La pausa queda al final para que el jugador alcance a leer el resumen
     printf("\nPresione ENTER para salir\n");
     getchar();
 }

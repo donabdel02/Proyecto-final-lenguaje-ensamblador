@@ -190,12 +190,8 @@ int main() {
     // Formula: (monedas x 250) + (niveles completados x 1000) - (pasos x 5)
     int puntaje = calcularPuntaje(totalMonedas, pasosTotal, nivelesOK);
 
-    // Mostrar pantalla de victoria (punto extra) sin musica
-    // Definida en renderizado.c, muestra mensaje y estadisticas
-    mostrarPantallaVictoria(totalMonedas, pasosTotal);
-    printf(COLOR_TITULO "Puntaje final: %d\n" COLOR_RESET, puntaje);
-    printf("Presiona cualquier tecla para salir...\n");
-    _getch();
+    // Mostrar pantalla de victoria con todas las estadisticas finales.
+    mostrarPantallaVictoria(totalMonedas, pasosTotal, puntaje);
 
     return 0;
 }

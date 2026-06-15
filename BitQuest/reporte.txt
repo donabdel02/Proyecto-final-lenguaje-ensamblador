@@ -38,6 +38,9 @@ Abdel
     tambien se modifico build.bat para que compile objetos.c y lo agregue al enlazado como objetos.obj, ya que main.c usa
     la funcion procesarObjeto para recoger monedas y llaves. ademas se agrego -lwinmm para que PlaySound pueda enlazarse correctamente.
 
+    se corrigio la pantalla de victoria porque antes mostraba las monedas y los pasos, hacia una pausa, y despues main.c imprimia el puntaje final.
+    Para que el resumen quedara ordenado, ahora mostrarPantallaVictoria recibe tambien el puntaje y muestra monedas, pasos y puntaje antes de pedir ENTER para salir.
+
 Andres
 
 Para inciar empece con el archivo de jugador.c, donde comence con añadir las cosas ya archivos externos que ocuparía en la funcion de crearjugador establecí como tal como iba a iniciar el jugador, por ej3emplo su posicion y sus valores los cuales incian en 0
