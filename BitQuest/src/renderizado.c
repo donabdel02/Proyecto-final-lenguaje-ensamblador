@@ -21,7 +21,7 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
             char celda = mapa[i][j]; // agarra el caracter de la celda actual para decidir como imprimirlo
             
             if (celda == CHAR_PARED) {
-                printf(COLOR_PARED "%s" COLOR_RESET, VISUAL_PARED); // si es pared la imprime con el visual de pared
+                printf(COLOR_PARED "  " COLOR_RESET); // pared con fondo rojo completo
             } else if (celda == CHAR_JUGADOR) {
                 printf(COLOR_JUGADOR "%s" COLOR_RESET, VISUAL_JUGADOR); // si es jugador la imprime con el visual de jugador
             } else if (celda == CHAR_MONEDA) {
@@ -33,7 +33,7 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
             } else if (celda == CHAR_SALIDA) {
                 printf(COLOR_SALIDA "%s" COLOR_RESET, VISUAL_SALIDA); // si es salida la imprime con el visual de salida
             } else if (celda == CHAR_LIBRE) {
-                printf(VISUAL_LIBRE); // camino libre, se imprime como espacio para que parezca pasillo
+                printf(COLOR_LIBRE "%s" COLOR_RESET, VISUAL_LIBRE); // camino libre con fondo gris para que parezca piso
             } else {
                 printf("%c ", celda); // cualquier otro caracter conserva el ancho de dos columnas
             }
