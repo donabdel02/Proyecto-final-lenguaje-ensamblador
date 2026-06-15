@@ -13,7 +13,7 @@ monedas - amarillas
 llaves - verde esperanza
 puertas - morado misterio
 salida - cyan libertad 
-titulo - blanco puro
+titulo - rojo sangre
 */
 
 #define COLOR_PARED "\033[41m"
@@ -23,6 +23,6 @@ titulo - blanco puro
 #define COLOR_LLAVE "\033[32m"
 #define COLOR_PUERTA "\033[35m"
 #define COLOR_SALIDA "\033[36m"
-#define COLOR_TITULO "\033[37m"
+#define COLOR_TITULO "\033[41m"
 
 #endif // COLORES_H

@@ -50,8 +50,9 @@ void MostrarHUD(Jugador* j, int nivel) {
 void mostrarPantallaInicio() {
     system("cls");
     printf(COLOR_TITULO "\n");
-    printf("BITQUEST\n");
-    printf("Explorador de Matrices\n");
+    printf("=====================\n");
+    printf("BIENVENIDO A\n");
+    printf("EL LABERINTO\n");
     printf(COLOR_RESET "\n\n");
     printf("Controles:\n");
     printf(" W - Arriba\n");
@@ -59,7 +60,7 @@ void mostrarPantallaInicio() {
     printf(" A - Izquierda\n");
     printf(" D - Derecha\n");
     printf(" Q - Salir\n\n");
-    printf("Presione ENTER para comenzar\n");
+    printf("Presione la tecla ENTER para comenzar\n");
     getchar();
 }
 
