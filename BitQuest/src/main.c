@@ -8,7 +8,7 @@
 //   2. Recorre los 4 niveles en orden
 //   3. En cada nivel: carga el mapa, busca al jugador, reproduce musica,
 //      lee teclas WASD, valida movimiento con NASM, recoge objetos,
-//      mueve al enemigo y detecta si llego a la salida
+//      y detecta si llego a la salida
 //   4. Al terminar todos los niveles: calcula puntaje final con NASM
 //      y muestra la pantalla de victoria
 
@@ -21,7 +21,7 @@
 #include "mapas.h"      // cargar_mapa: lee el archivo .txt y llena la matriz
 #include "renderizado.h"// ImpresionMapa, MostrarHUD, pantallas de inicio y victoria
 #include "rutinas.h"    // prototipos de las 5 rutinas NASM obligatorias
-#include "objetos.h"    // procesarObjeto y moverEnemigo
+#include "objetos.h"    // procesarObjeto
 
 int main() {
 
@@ -85,11 +85,6 @@ int main() {
         // Inicializar al jugador en su posicion de inicio con todo en cero
         CrearJugador(&jugador, filaInicio, colInicio);
 
-        // Colocar al enemigo en una posicion fija al inicio de cada nivel
-        // Se representa con 'X' en el mapa
-        int filaE = 3, colE = 3;
-        mapa[filaE][colE] = 'X';
-
         // Reproducir la cancion del nivel actual en segundo plano (SND_ASYNC)
         // SND_LOOP hace que se repita hasta que se detenga explicitamente
         PlaySound(canciones[nivel], NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
@@ -97,8 +92,8 @@ int main() {
         int nivelTerminado = 0; // bandera: 1 cuando el nivel debe terminar
         char tecla;             // guarda la tecla que presiono el jugador
 
-        // --- Bucle del nivel: se repite hasta que el jugador llegue a la salida,
-        //     presione Q para salir, o el enemigo lo atrape ---
+        // --- Bucle del nivel: se repite hasta que el jugador llegue a la salida
+        //     o presione Q para salir ---
         while (!nivelTerminado) {
 
             // Dibujar el mapa con ventana 20x20 centrada en el jugador (renderizado.c)
@@ -167,15 +162,6 @@ int main() {
                 }
             }
 
-            // Mover al enemigo un paso hacia el jugador cada turno (punto extra)
-            moverEnemigo(mapa, &filaE, &colE, jugador.fila, jugador.columna);
-
-            // Revisar si el enemigo alcanzo al jugador
-            if (jugador.fila == filaE && jugador.columna == colE) {
-                printf(COLOR_PARED "\n¡Te atrapo el enemigo! Fin del nivel.\n" COLOR_RESET);
-                _getch();
-                nivelTerminado = 1;
-            }
         }
 
         // Detener la musica al terminar el nivel

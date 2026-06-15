@@ -1,4 +1,4 @@
-AQUI ESCRIBAN QUE HICIERON, COMO LO HICIERON Y PARA QUE, PARA INCLUIRLO EN EL REPORTE 
+﻿AQUI ESCRIBAN QUE HICIERON, COMO LO HICIERON Y PARA QUE, PARA INCLUIRLO EN EL REPORTE 
 
 Abdel 
     para el comienzo usamos una estructura basica de extenciones como mapas.h, assets.h, colores.h y juego.h ademas de el main.c,
@@ -7,30 +7,37 @@ Abdel
     cual estara el estado del jugador, con esta nueva configuracion llamaremos todo desde el main aplicando esta mayor modularidad 
     que ya se menciono, primero definimos colores que usaremos, caracteres ascii, tamanio del mapa, structs del jugador y varias 
     funciones basicas que usaremos.
+
     Hicimos la primera rutina en rutinas.nasm la cual cuenta caracteres en el mapa, que principalmente se va a usar para contar 
-    las monedas en el mapa. Despues la implementamos en rutinas.h para poder llamara despues. 
+    las monedas en el mapa. 
+    
+    Despues la implementamos en rutinas.h para poder llamara despues. 
     Definimos las funciones de rutinas.h que se ejecutan como desde rutinas.nasm para posteriormete programarlas en ensamblador.
+
+    Para validar el movimiento del jugador usamos la rutina validarMovimiento. Primero recibe el mapa, el numero de columnas, la fila y la columna
+    a donde se quiere mover el jugador. Con esos datos calcula la posicion exacta dentro del mapa usando fila * columnas + columna.
+    Despues compara esa celda con el caracter #, que representa una pared. Si encuentra una pared retorna 0 porque el movimiento no se puede
+    realizar, y si la celda no es pared retorna 1 porque el movimiento es valido.
 
     Para calcular puntaje usamos la siguente forma. cada moneda te da 250 puntitos, cada nivel completado te da 1000 puntitos y cada
     paso que des te resta 5 puntitos. entonces se suman los punto de las monedas obtenidas y de los niveles completados y a este
     se le restan los pasos que diste.
 
-    para comparar el objeto primero se obtiene la ubicacion dentro del mapa con una operacion de fila * num de columnas + la columna 
+    para detectar el objeto primer hay que comparar, se obtiene la ubicacion dentro del mapa con una operacion de fila * num de columnas + la columna 
     para despues compararlo con el objeto desdeado, si este es igual pues excelente y retorna un 1 y si no es igual retorna un 0. 
 
-    para verificar las celdas libres primero se inicializa el contador de celdas libres en cero, se verifica el tamaño del mapa, y 
-    comienza a comparar las celdas del mapa con el . que simboliza un espacio vacio. al finaliar retorna la cantidad total de celdas libres.    
+    para contar las celdas libres primero se inicializa el contador de celdas libres en cero, se verifica el tamaño del mapa, y 
+    comienza a comparar las celdas del mapa con el . que simboliza un espacio vacio. al finaliar retorna la cantidad total de celdas libres.
+
+    cambio en los paranetros que recibe ImpresionMpara, ahora si recibe el mapa como una matriz de 60x60.
+
+    se cambio la forma en que se imprime el mapa para usar los caracteres visuales definidos en assets.h
+    Ahora las paredes se muestran como ##, el jugador como @, las monedas como o, la llave como !, la puerta como []
+    y la salida como ><, en lugar de imprimir directamente los caracteres basicos de la matriz.
+
+    tambien se modifico build.bat para que compile objetos.c y lo agregue al enlazado como objetos.obj, ya que main.c usa
+    la funcion procesarObjeto para recoger monedas y llaves. ademas se agrego -lwinmm para que PlaySound pueda enlazarse correctamente.
 
 Andres
 
 Ninfa
-    Se crearon desde cero los archivos objetos.h y objetos.c para manejar lo que le pasa al jugador cuando pisa una celda con objeto. En objetos.h 
-    se declararon los prototipos de las funciones y en objetos.c se implementó procesarObjeto que revisa qué carácter hay en la celda a la que se
-    mueve el jugador: si es una moneda le suma uno al contador y la borra del mapa para que no se pueda recoger dos veces, y si es una llave activa
-    la bandera de llave del jugador y también la borra del mapa.
-    Se reescribió main.c para conectar todos los módulos del proyecto que antes existían pero no estaban unidos. Ahora carga el mapa desde
-    el archivo .txt del nivel, busca la posición inicial del jugador en el mapa, lee las teclas WASD para mover al jugador, 
-    llama a validarMovimiento de NASM para verificar que la celda no sea pared antes de moverse, llama a detectarObjeto de NASM
-    para saber si hay una moneda o llave en la celda destino, llama a procesarObjeto para aplicar el efecto correspondiente,
-    verifica si el jugador llegó a la salida, y al final llama a calcularPuntaje y contarCeldasLibres de NASM para el resumen.
-    También se conectaron las pantallas de inicio y victoria que ya existían en renderizado.c pero nunca se llamaban desde el flujo principal.

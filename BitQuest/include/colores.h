@@ -7,8 +7,8 @@
 #define COLOR_BOLD "\033[1m"
 /* 
 paredes - rojo sangre
-camino libre - negro
-jugador - azul amistoto
+camino libre - gris melancolia
+jugador - azul amistoso
 monedas - amarillas
 llaves - verde esperanza
 puertas - morado misterio
@@ -16,8 +16,8 @@ salida - cyan libertad
 titulo - blanco puro
 */
 
-#define COLOR_PARED "\033[31m"
-#define COLOR_CAMINO "\033[30m"
+#define COLOR_PARED "\033[41m"
+#define COLOR_LIBRE "\033[100m"
 #define COLOR_JUGADOR "\033[34m"
 #define COLOR_MONEDA "\033[33m"
 #define COLOR_LLAVE "\033[32m"

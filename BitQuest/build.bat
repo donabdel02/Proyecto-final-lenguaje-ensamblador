@@ -9,11 +9,12 @@ REM Compilar archivos C
 gcc -c src/jugador.c  -o src/jugador.obj  -I include
 gcc -c src/mapas.c  -o src/mapas.obj  -I include
 gcc -c src/renderizado.c  -o src/renderizado.obj  -I include
+gcc -c src/objetos.c  -o src/objetos.obj  -I include
 gcc -c src/main.c   -o src/main.obj   -I include
 
 REM Enlazar todo
-gcc src/main.obj src/jugador.obj src/mapas.obj src/renderizado.obj src/rutinas.obj ^
-    -o BitQuest.exe -lkernel32
+gcc src/main.obj src/jugador.obj src/mapas.obj src/renderizado.obj src/objetos.obj src/rutinas.obj ^
+    -o BitQuest.exe -lkernel32 -lwinmm
 
 if errorlevel 1 ( echo ERROR al enlazar & pause & exit /b 1 )
 
