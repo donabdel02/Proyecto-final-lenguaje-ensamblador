@@ -40,4 +40,23 @@ Abdel
 
 Andres
 
+Para inciar empece con el archivo de jugador.c, donde comence con añadir las cosas ya archivos externos que ocuparía en la funcion de crearjugador establecí como tal como iba a iniciar el jugador, por ej3emplo su posicion y sus valores los cuales incian en 0
+
+después a peticion de una IA se incluyeron 4 if para que la impresion del mapa no se salga del mapa y asi se quede dentro y si es que esta apunto de salirse se ajusta para poner espacios en blanco
+
+las siguientes cosas son validaciones
+
+
+después para renderizado.c
+
+hice 2 for para la impresion del mapa junto con un char para que supiera que imprimir en x posicion
+
+todo lo que va despues es es para que use los colores que se establecieron en colores.h 
+
+despues hice una funcion para que tal cual muestre la informacion de HUD al jugador que este jugando los niveles y sepa que es lo que tiene y que no
+
+y ya despues de todo eso simplemente son las impresiones para el jugador y para cuando inicie el juego
+
+
+
 Ninfa
