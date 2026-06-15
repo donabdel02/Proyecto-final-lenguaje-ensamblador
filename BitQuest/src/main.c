@@ -1,17 +1,3 @@
-// main.c
-// Punto de entrada del juego BitQuest.
-// Este archivo fue reescrito porque el original solo tenia funciones vacias
-// y no conectaba ninguno de los modulos del proyecto.
-//
-// Ahora hace lo siguiente en orden:
-//   1. Muestra la pantalla de inicio
-//   2. Recorre los 4 niveles en orden
-//   3. En cada nivel: carga el mapa, busca al jugador, reproduce musica,
-//      lee teclas WASD, valida movimiento con NASM, recoge objetos,
-//      y detecta si llego a la salida
-//   4. Al terminar todos los niveles: calcula puntaje final con NASM
-//      y muestra la pantalla de victoria
-
 #include <stdio.h>
 #include <conio.h>      // _getch(): lee una tecla sin necesitar Enter (solo Windows)
 #include <windows.h>    // PlaySound(): para reproducir musica WAV por nivel
@@ -24,8 +10,7 @@
 #include "objetos.h"    // procesarObjeto
 
 int main() {
-
-    // --- Pantalla de inicio (punto extra) ---
+    
     // Definida en renderizado.c, muestra titulo y controles
     mostrarPantallaInicio();
 
@@ -40,7 +25,6 @@ int main() {
     int salirJuego   = 0; // indica si el jugador quiere cerrar todo el juego
 
     // Rutas de los archivos de mapa, uno por nivel
-    // El punto extra de "mas de 3 niveles" se cumple con estos 4 archivos
     const char* archivos[] = {
         "mapas/lv1.txt",
         "mapas/lv2.txt",
@@ -48,9 +32,7 @@ int main() {
         "mapas/lv4.txt"
     };
 
-    // Rutas de las canciones, una distinta por nivel (punto extra de musica)
-    // La musica NO suena en pantalla de inicio ni en pantalla de victoria,
-    // solo durante el juego de cada nivel
+    // rutas de las canciones para cada nivel, en formato WAV para usar con PlaySound
     const char* canciones[] = {
         "rolas/lv1.wav",
         "rolas/lv2.wav",
@@ -73,7 +55,6 @@ int main() {
         int monedasNivel = contarCaracterMapa(
             &mapa[0][0], FILAS * COLUMNAS, CHAR_MONEDA);
 
-        // Buscar la posicion inicial del jugador 'P' en el mapa cargado
         // El jugador empieza donde el archivo .txt tenga una 'P'
         int filaInicio = 1, colInicio = 1; // valores por defecto si no encuentra 'P'
         for (int i = 0; i < FILAS; i++)
@@ -86,7 +67,6 @@ int main() {
         // Inicializar al jugador en su posicion de inicio con todo en cero
         CrearJugador(&jugador, filaInicio, colInicio);
 
-        // Reproducir la cancion del nivel actual en segundo plano (SND_ASYNC)
         // SND_LOOP hace que se repita hasta que se detenga explicitamente
         PlaySound(canciones[nivel], NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
@@ -131,7 +111,6 @@ int main() {
             // Verificar que la nueva posicion este dentro del mapa
             if (nf >= 0 && nf < FILAS && nc >= 0 && nc < COLUMNAS) {
 
-                // Validar con rutina NASM obligatoria 2 que la celda no sea pared
                 // validarMovimiento regresa 1 si es valido, 0 si es pared
                 if (validarMovimiento(&mapa[0][0], COLUMNAS, nf, nc)) {
 
@@ -197,7 +176,6 @@ int main() {
     // --- Fin del juego ---
 
     // Calcular puntaje final con rutina NASM obligatoria 3
-    // Formula: (monedas x 250) + (niveles completados x 1000) - (pasos x 5)
     int puntaje = calcularPuntaje(totalMonedas, pasosTotal, nivelesOK);
 
     // Mostrar pantalla de victoria con todas las estadisticas finales.
