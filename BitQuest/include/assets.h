@@ -13,7 +13,7 @@
 #define CHAR_SALIDA  'E'
 
 //con ASCII para el punto extra y para que se vea más bonito el juego, aunque no es necesario para el funcionamiento del mismo
-#define VISUAL_PARED   "##"
+#define VISUAL_PARED   "  "
 #define VISUAL_LIBRE   "  "
 #define VISUAL_JUGADOR "/\\"
 #define VISUAL_MONEDA  "o "

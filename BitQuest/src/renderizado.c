@@ -21,7 +21,7 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
             char celda = mapa[i][j]; // agarra el caracter de la celda actual para decidir como imprimirlo
             
             if (celda == CHAR_PARED) {
-                printf(COLOR_PARED "  " COLOR_RESET); // pared con fondo rojo completo
+                printf(COLOR_PARED "%s" COLOR_RESET, VISUAL_PARED); // pared con fondo rojo completo
             } else if (celda == CHAR_JUGADOR) {
                 printf(COLOR_JUGADOR "%s" COLOR_RESET, VISUAL_JUGADOR); // si es jugador la imprime con el visual de jugador
             } else if (celda == CHAR_MONEDA) {
@@ -43,7 +43,7 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
 }
 
 void MostrarHUD(Jugador* j, int nivel) {
-    printf(COLOR_JUGADOR "Nivel: %d | Monedas: %d | Pasos: %d | Llave: %s" COLOR_SALIDA "\n", // esta funcion muestra el HUD con la informacion del jugador, como el nivel actual, las monedas recogidas, los pasos dados y si tiene la llave o no
+    printf(COLOR_JUGADOR "Nivel: %d | Monedas: %d | Pasos: %d | Llave: %s" COLOR_RESET "\n", // muestra el HUD y reinicia el color
         nivel, j->monedas, j->pasos, j->Llave ? "SI" : "NO"); 
 }
 

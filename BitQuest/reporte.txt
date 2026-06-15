@@ -41,6 +41,7 @@ Abdel
     se corrigio la pantalla de victoria porque antes mostraba las monedas y los pasos, hacia una pausa, y despues main.c imprimia el puntaje final.
     Para que el resumen quedara ordenado, ahora mostrarPantallaVictoria recibe tambien el puntaje y muestra monedas, pasos y puntaje antes de pedir ENTER para salir.
 
+
 Andres
 
 Para inciar empece con el archivo de jugador.c, donde comence con añadir las cosas ya archivos externos que ocuparía en la funcion de crearjugador establecí como tal como iba a iniciar el jugador, por ej3emplo su posicion y sus valores los cuales incian en 0
@@ -59,6 +60,11 @@ Archivos.h
 
 en jugador.h y renderizado.h
 simplemente se llama a las funciones ya creadas para poder crear todo lo demás 
+
+tambien se corrigio el manejo de teclas para que solo WASD cuente como movimiento y las demas teclas no sumen pasos.
+La tecla Q ahora cierra el juego completo en vez de avanzar al siguiente nivel. Tambien se ajusto VISUAL_PARED para usarlo
+al imprimir las paredes con fondo rojo y se corrigio el HUD para que reinicie el color despues de mostrar la informacion.
+
 
 
 Ninfa

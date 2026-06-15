@@ -37,6 +37,7 @@ int main() {
     int totalMonedas = 0; // monedas sumadas de todos los niveles
     int pasosTotal   = 0; // pasos sumados de todos los niveles
     int nivelesOK    = 0; // cuantos niveles se completaron llegando a la salida
+    int salirJuego   = 0; // indica si el jugador quiere cerrar todo el juego
 
     // Rutas de los archivos de mapa, uno por nivel
     // El punto extra de "mas de 3 niveles" se cumple con estos 4 archivos
@@ -58,7 +59,7 @@ int main() {
     };
 
     // --- Bucle principal: recorre los 4 niveles en orden ---
-    for (int nivel = 0; nivel < 4; nivel++) {
+    for (int nivel = 0; nivel < 4 && !salirJuego; nivel++) {
 
         // Cargar el archivo .txt del nivel actual en la matriz mapa[][]
         // Si el archivo no existe o no se puede abrir, salta al siguiente nivel
@@ -106,8 +107,9 @@ int main() {
             // Leer la tecla sin esperar Enter
             tecla = _getch();
 
-            // Q o q: salir del nivel sin completarlo
+            // Q o q: salir del juego completo
             if (tecla == 'q' || tecla == 'Q') {
+                salirJuego = 1;
                 nivelTerminado = 1;
                 break;
             }
@@ -116,10 +118,15 @@ int main() {
             // WASD en mayusculas y minusculas para que funcione de las dos formas
             int nf = jugador.fila;
             int nc = jugador.columna;
+            int teclaMovimiento = 1; // ayuda a ignorar teclas que no sean WASD
             if (tecla == 'w' || tecla == 'W') nf--;
-            if (tecla == 's' || tecla == 'S') nf++;
-            if (tecla == 'a' || tecla == 'A') nc--;
-            if (tecla == 'd' || tecla == 'D') nc++;
+            else if (tecla == 's' || tecla == 'S') nf++;
+            else if (tecla == 'a' || tecla == 'A') nc--;
+            else if (tecla == 'd' || tecla == 'D') nc++;
+            else teclaMovimiento = 0;
+
+            // Si no fue una tecla valida, no mueve ni suma pasos
+            if (!teclaMovimiento) continue;
 
             // Verificar que la nueva posicion este dentro del mapa
             if (nf >= 0 && nf < FILAS && nc >= 0 && nc < COLUMNAS) {
@@ -167,6 +174,9 @@ int main() {
         // Detener la musica al terminar el nivel
         // NULL como primer argumento detiene cualquier sonido activo
         PlaySound(NULL, NULL, 0);
+
+        // Si se presiono Q, termina el programa sin pasar al siguiente nivel
+        if (salirJuego) return 0;
 
         // Acumular estadisticas del nivel para el resumen final
         totalMonedas += jugador.monedas;
