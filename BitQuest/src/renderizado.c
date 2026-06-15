@@ -49,7 +49,7 @@ void MostrarHUD(Jugador* j, int nivel) {
 
 void mostrarPantallaInicio() {
     system("cls");
-    printf(COLOR_TITULO "\n");
+    printf(COLOR_PARED"\n");
     printf("=====================\n");
     printf("BIENVENIDO A\n");
     printf("EL LABERINTO\n");
