@@ -73,6 +73,7 @@ void mostrarPantallaVictoria(int monedas, int pasos, int puntaje) {
     // Muestra todas las estadisticas finales antes de pausar
     printf("Monedas recogidas: %d\n", monedas);
     printf("Pasos dados: %d\n", pasos);
+    printf("Niveles completados: 4\n");
     printf(COLOR_TITULO "Puntaje final: %d\n" COLOR_RESET, puntaje);
     // La pausa queda al final para que el jugador alcance a leer el resumen
     printf("\nPresione ENTER para salir\n");

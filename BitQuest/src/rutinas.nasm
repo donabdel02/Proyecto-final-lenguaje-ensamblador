@@ -74,7 +74,7 @@ calcularPuntaje:
     add  rax, r10 ; suma los puntos de nivel completado al puntaje que habia 
 
     mov  r10, rdx ;pasos 
-    imul r10, 5 ; calcula cuantos puntos quita cada paso 
+    imul r10, 1 ; calcula cuantos puntos quita cada paso 
 
     sub  rax, r10 ; resta los puntos de los pasos 
 
