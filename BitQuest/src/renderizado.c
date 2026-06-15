@@ -43,15 +43,17 @@ void ImpresionMapa(char mapa[][COLUMNAS], Jugador* j) { //aqui tambien ya tiene 
 }
 
 void MostrarHUD(Jugador* j, int nivel) {
-    printf(COLOR_JUGADOR "Nivel: %d | Monedas: %d | Pasos: %d | Llave: %s" COLOR_RESET "\n", // esta funcion muestra el HUD con la informacion del jugador, como el nivel actual, las monedas recogidas, los pasos dados y si tiene la llave o no
+    printf(COLOR_JUGADOR "Nivel: %d | Monedas: %d | Pasos: %d | Llave: %s" COLOR_SALIDA "\n", // esta funcion muestra el HUD con la informacion del jugador, como el nivel actual, las monedas recogidas, los pasos dados y si tiene la llave o no
         nivel, j->monedas, j->pasos, j->Llave ? "SI" : "NO"); 
 }
 
 void mostrarPantallaInicio() {
     system("cls");
     printf(COLOR_TITULO "\n");
-    printf("BITQUEST\n");
-    printf("Explorador de Matrices\n");
+    printf("=====================\n");
+    printf("BIENVENIDO A\n");
+    printf("EL LABERINTO\n");
+    printf("=====================\n");
     printf(COLOR_RESET "\n\n");
     printf("Controles:\n");
     printf(" W - Arriba\n");
@@ -59,7 +61,7 @@ void mostrarPantallaInicio() {
     printf(" A - Izquierda\n");
     printf(" D - Derecha\n");
     printf(" Q - Salir\n\n");
-    printf("Presione ENTER para comenzar\n");
+    printf("Presione la tecla ENTER para comenzar\n");
     getchar();
 }
 
